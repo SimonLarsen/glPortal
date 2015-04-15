@@ -1,0 +1,6 @@
+include_directories(lib engine ${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/../source)
+add_executable(xmlReadingTest EXCLUDE_FROM_ALL XmlReadingTest.cpp ../source/engine/core/math/Vector3f.cpp ../source/assets/map/XmlHelper.cpp)
+target_link_libraries(xmlReadingTest ${UnitTestPlusPlus_LIBRARY} ${PORTAL_TEST_LIBRARIES})
+add_custom_target(tests)
+add_dependencies(tests xmlReadingTest)
+add_test(NAME xmlReadingTest COMMAND xmlReadingTest)
